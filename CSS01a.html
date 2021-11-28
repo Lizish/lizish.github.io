@@ -4,9 +4,17 @@
     <title>Liz's CSS Lab 1A</title>
 
     <style>
+    html { background: url(colorful_lichens.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+          }
       p {font-family: serif; font-style:normal; color: darkgreen; background-color: white}
       h1, h2, h3 {font-family: sans-serif;font-weight: bold; color: navy}
-      .container {border: 1pt}
+      .container {border-width: thick; border-color: darkgoldenrod; padding:2pt; margin: 2pt}
+      #aboutme {background-color: lightgray; border-color: brown; border: 2pt}
+      #divboxes {}
     </style>
 
   </head>
@@ -14,7 +22,8 @@
   <body>
     <h1 class="header">This is my first CSS Lab</h1>
 
-    <div id="About Me" class="container">
+   <div id="divboxes>"
+    <div id="aboutme" class="container">
 
       <h2 class="header">About me: </h2>
 
@@ -92,6 +101,6 @@
     <p>To commiserate over the state of the world, email me at <a href="mailto: emathew3@msudenver.edu">emathew3@msudenver.edu</a></p>
 
     <p>For my GitHub repositories, please visit <a href="https://github.com/Lizish?tab=repositories">Lizish's GitHub</a></p>
-
+  </div>
   </body>
 </html>
