@@ -53,16 +53,24 @@
         <p hidden id="aboutme_p">
           <script>
           $ ("button").click ( function(){
-              $ ("#aboutme_p").show();
+              $ ("#aboutme_p").toggle();
           })
           </script>
 
           I am a student in <b>Environmental Science</b> and <b>GIS</b> at <a href="www.msudenver.edu"> MSU Denver </a>.
           I worked for <a href="https://cires.colorado.edu/">CIRES</a> the (Cooperative Institute for Research in Environmental Sciences)
-          during the summer 2020 and 2021 breaks.
+          during the summer of 2020 and 2021.
         </p>
 
     </div>
+    <p><button>Hover over the photo to see what I look like!</button></p>
+   <img id="img_hover" width=200 height=200 src="boggs.jpg">
+   <figcaption id="about_liz" hidden>Here's Liz!</figcaption>
+   <script>
+     $("#img_hover").hover(  function() {
+       $("#about_liz").show();
+     })
+   </script>
 
         <div id="Quote" class="container">
             <h3 class="header">Favorite Quotes</h3>
