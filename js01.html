@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Liz's CSS Lab 1C</title>
+
+    <style>
+    html {
+        background-color: black}
+        .header {color: oldlace; font-variant: small-caps; font-size: 15; text-align: center;}
+        .container {border-style:  solid; width:500; height: auto; border-color: blue; border-width: thin; padding: 15px; margin: 15px}
+        p {font-family: helvetica, georgia, sans-serif; color: cornsilk; font-size: 13}
+        #Food {font-family: georgia, arial, sans-serif; color: orchid; font-size: 12; align-items: : center;float:left;}
+        #Quote {font-family: georgia, arial, serif; color: paleturquoise; font-size: 12; text-align: center;}
+        #CourseSchedule {font-family: arial, sans-serif; color: paleturquoise; font-size: 12; align-items: center;float:left;}
+        #Interests {font-family: georgia, arial, sans-serif; color: orchid; font-size: 12; align-items: : center;float:left;}
+
+        div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+      }
+
+      div.gallery:hover {
+        border: 1px solid #777;
+      }
+
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        color: oldlace;
+        font-family: serif;
+        text-align: center;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <h1 class="header">This is my third CSS lab</h1>
+
+    <div id="Aboutme" class="container">
+
+      <h2 class="header">About me: </h2>
+        <script>
+          document.write ("I am a lone wolf."<br>);
+        </script>
+
+        <p> I am a student in <b>Environmental Science</b> and <b>GIS</b> at <a href="www.msudenver.edu"> MSU Denver </a>.
+          I worked for <a href="https://cires.colorado.edu/">CIRES</a> the (Cooperative Institute for Research in Environmental Sciences)
+          during the summer 2020 and 2021 breaks. In 2020, I worked for a team that studied geologic impacts on long timescale
+          climate change. In 2021, I worked with evolutionary biologists and geophysicists to study barn swallow microbehaviors in response
+          to changes in Earth's geomagnetic fields caused by solar storms and flares. Both projects involved GIS Mapping
+          and learning exciting new aspects of science!
+    </div>
+
+        <div id="Quote" class="container">
+            <h3 class="header">Favorite Quotes</h3>
+
+         <p>One of my favorite quotes comes from Kevin Kelly's book <em>The Inevitable: Understanding the 12 Technological Forces That Will Shape Our Future</em></p>
+           <blockquote><em>"We’ve been redefining what it means to be human. Over the past 60 years, as mechanical processes have replicated behaviors and talents we thought were unique to humans, we’ve had to change our minds about what sets us apart. As we invent more species of AI, we will be forced to surrender more of what is supposedly unique about humans. Each step of surrender—we are not the only mind that can play chess, fly a plane, make music, or invent a mathematical law—will be painful and sad. We’ll spend the next three decades—indeed, perhaps the next century—in a permanent identity crisis, continually asking ourselves what humans are good for. If we aren’t unique toolmakers, or artists, or moral ethicists, then what, if anything, makes us special? In the grandest irony of all, the greatest benefit of an everyday, utilitarian AI will not be increased productivity or an economics of abundance or a new way of doing science—although all those will happen. The greatest benefit of the arrival of artificial intelligence is that AIs will help define humanity. We need AIs to tell us who we are."</em></blockquote>
+         </div>
+
+
+    <div id="Food" class="container">
+
+      <h3 class="header">My favorite foods are:</h3>
+
+        <ol>
+          <li>Blueberries</li>
+          <li>Goat cheese</li>
+          <li>Avocadoes</li>
+          <li>Cherry tomatoes</li>
+          <li>Tiramisu</li>
+        </ol>
+
+      </div>
+
+      <div id="CourseSchedule" class="container">
+          <h3 class="header">My Course Schedule</h3>
+
+              <table border=1>
+
+                <tr>
+                  <th>Fall 2021</th>
+                  <th>Spring 2022</th>
+                </tr>
+                <tr>
+                  <td>Web Mapping</td>
+                  <td>Statistics</td>
+                </tr>
+                <tr>
+                  <td>Global Environmental Challenges</td>
+                  <td>GIS undetermined</td>
+                </tr>
+                <tr>
+                  <td>Cultural Anthropology</td>
+                  <td>GIS undetermined</td>
+                </tr>
+
+               </table>
+             </div>
+
+             <div id="Interests" class="container">
+
+               <h3 class="header">Some of my Interests are:</h3>
+
+                 <ul>
+                   <li>Renewable Energy</li>
+                   <li>Landfill Mining</li>
+                   <li>Robotics</li>
+                   <li>Science fiction</li>
+                   <li>Animal behavior</li>
+                 </ul>
+
+               </div>
+
+
+      <div class="gallery">
+        <h3 class="header">My Internship Photo Album</h3>
+
+          <a target="_blank" href="nestSizeMag .jpg">
+            <img src="nestSizemag .jpg" alt="Map of Barn Swallow Nests" width="600" height="400">
+          </a>
+          <div class="desc">Map of Barn Swallow nests and their size in relation to total geomagnetic intensity.</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="yatahai.jpg">
+            <img src="yatahai.jpg" alt="Sheep" width="600" height="400">
+          </a>
+          <div class="desc">The very skeptical sheep of Yatahai Gardens</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="milkthistle.jpg">
+            <img src="milkthistle.jpg" alt="Field of milkthistle" width="600" height="400">
+          </a>
+          <div class="desc">A field of milkthistle in Longmont, CO.</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="gpsBirds.png">
+            <img src="gpsBirds.png" alt="Maps of gps tracked birds" width="600" height="400">
+          </a>
+          <div class="desc">Two maps showing the paths taken by GPS-tracked Barn Swallows</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="milkweed.jpg">
+            <img src="milkweed.jpg" alt="Milkweed" width="600" height="400">
+          </a>
+          <div class="desc">Milkweed</div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="smHorse.jpg">
+            <img src="smHorse.jpg" alt="Small horse" width="600" height="400">
+          </a>
+          <div class="desc">The littlest horse at Make Believe Ranch</div>
+        </div>
+
+   </div>
+
+  </body>
+</html>
