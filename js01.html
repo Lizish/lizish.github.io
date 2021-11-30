@@ -61,15 +61,16 @@
           I worked for <a href="https://cires.colorado.edu/">CIRES</a> the (Cooperative Institute for Research in Environmental Sciences)
           during the summer of 2020 and 2021.
         </p>
-
+        <p><button>Hover over the photo to learn more!</button></p>
+           <img id="img_hover" width=300 height=500 src="nestSizeMag.jpg">
+           <figcaption id="nestSizeMag" hidden>This is a map of barn swallow nests</figcaption>
+           <script>
+             $("#img_hover").hover(  function() {
+               $("#nestSizeMag").show();
+             })
+     </script>
     </div>
-    <p><button>Hover over the photo to see what I look like!</button></p>
-   <img id="img_hover" width=200 height=200 src="boggs.jpg">
-   <figcaption id="about_liz" hidden>Here's Liz!</figcaption>
-   <script>
-     $("#img_hover").hover(  function() {
-       $("#about_liz").show();
-     })
+
    </script>
 
         <div id="Quote" class="container">
