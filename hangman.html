@@ -33,10 +33,15 @@
               blanks = blanks.substring(0,count) + letter + //substring returns vaues from 0-count
                         blanks.substring((count+1),blanks.length);//substring returns
             }
-            count = count+1; //must update the count each time 
+            count = count+1; //must update the count each time
           }
           //update blanks
           $("#word").html(blanks);
+          //check if we won. If blanks has no more dashes, we have won
+          if (! blanks.includes("-")) {
+            finished = true;
+            $("#messages").text("You won!");
+          }
 
         });
 
