@@ -21,7 +21,14 @@
         $("#guesses").html(guesses);
         $("#word").html(blanks);
 
-        
+        $(".letter").click(function(e)  {//e is event
+          //run this when a letter is clicked
+          var letter = $(e.target).text(); //event saves the target, text is info related to target
+          //text is the stuff between the short spans - in this case, the letters
+          console.log("clicked on", letter);
+
+        });
+
       });
 
   </script>
