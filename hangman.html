@@ -15,12 +15,17 @@
         var word = "h a n g m a n"; // the word to guess
         var blanks = "- - - - - - -"; // this variable holds the temporary information
         var guesses = 10; // the number of guesses left
-        var guessed  = []; // these are the letters that have already been guessed
+        var guessed  = []; // these are the letters that have already been guessed. It's an array
         var finished = false; // change to true when the game is finished
 
         $("#guesses").html(guesses);
         $("#word").html(blanks);
 
+        //stop function if game is over
+        if (finished) {return;} //if finished = true, then don't run the rest of prgm. finished var
+        //is false by default
+
+        //get letter
         $(".letter").click(function(e)  {//e is event
           //run this when a letter is clicked
           var letter = $(e.target).text(); //event saves the target, text is info related to target
@@ -28,7 +33,24 @@
           console.log("clicked on", letter);
           //check the letter in the word
           //change the look of the letter so we know it has been checked
-          $("#"+letter).css("color", "red");
+          $("#"+letter).css("color", "red");//turns text red once clicked
+          //("text-decoration", "line-through") draws a line through text
+          //$("#"+letter).hide(); will hide the letter
+
+          //check if letter has been guessed
+          if (guessed.includes(letter)) {
+            $("#messages").text("The leter " + letter + " has already been guessed.");
+            }
+            else {
+              guessed = guessed + letter; //add letter to array of guessed
+              guesses = guesses - 1; //subtract a guess
+              $("#guesses").html(guesses); //updates guesses with the numb of guesses
+              if (guesses <= 0) {
+              $("#messages").text("Sorry, you lose.");
+              finished = true;
+            }
+            }
+
 
           var count = 0
           for (l of word) { //that's an L, not a 1, for letter of worked
