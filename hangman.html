@@ -26,6 +26,17 @@
           var letter = $(e.target).text(); //event saves the target, text is info related to target
           //text is the stuff between the short spans - in this case, the letters
           console.log("clicked on", letter);
+          //check the letter in the word
+          var count = 0
+          for (l of word) { //that's an L, not a 1, for letter of worked
+            if (l == letter) {
+              blanks = blanks.substring(0,count) + letter + //substring returns vaues from 0-count
+                        blanks.substring((count+1),blanks.length);//substring returns
+            }
+            count = count+1; //must update the count each time 
+          }
+          //update blanks
+          $("#word").html(blanks);
 
         });
 
