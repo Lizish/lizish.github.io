@@ -33,6 +33,20 @@
             // Bind popup to area object
             myArea.bindPopup("Auraria campus");
 
+            //create a function to return lat,lon from a myDataPoint
+            var popup = L.popup();
+
+            //write a function to set properties of a bindPopup
+            //popup is an object, variable. in blue are functions running on popup
+            function onMapClick(e) {
+              popup
+              .setLatLng(e.latlng)
+              .setContent("You clicked the map at " + e.latlng.toString())
+              .openOn(map);
+            }
+            //listen for a click event on the map
+            map.on('click', onMapClick);
+
           </script>
 
         </body>
