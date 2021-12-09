@@ -18,7 +18,7 @@
             var map = L.map('map', { center: [39.743218, -105.004568], zoom: 14});
 
             //Add openstreetmap background tile layer to map element
-            var defaultBase = L.tilelayer ('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+            var defaultBase = L.tileLayer ('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
                       { attribution: '© OpenStreetMap' }).addTo(map);
                       //goes to website, pulles z-zoom, x,y,-lat,long
             // Create point feature for Auraria Library. marker is a class
