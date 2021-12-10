@@ -24,7 +24,7 @@
                           //goes to website, pulles z-zoom, x,y,-lat,long
                           //watercolor stamen tile map
           var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z},{x},{y}.{ext}', {
-                                  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Designs</a>, <a href="http://creativecommon.org"></a>'
+                                  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Designs</a>, <a href="http://creativecommons.org"></a>'
                                   subdomains: 'abcd',
                                   minZoom: 1,
                                   maxZoom: 16,
@@ -46,7 +46,7 @@
                         {color: 'blue', weight: 4}).addTo(map);
           layerMenu.addOverlay(myArea, "Auraria Campus");
           layerMenu.addOverlay(myDataPoint, "Auraria Library");
-          
+
           // Bind popup to data point object
           myDataPoint.bindPopup("<h3>Auraria Library</h3><p>Denver, CO<br>Information about Auraria Library.</p>");
           // Bind popup to area object
