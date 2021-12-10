@@ -33,6 +33,12 @@
                       transparent: true,
                       attribution: "Weather data © 2012 IEM Nexrad"
                     }).addTo(map);
+          var nlmaps_pastel = L.tileLayer('https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/pastel/EPSG:3857/{z}/{x}/{y}.png', {
+                            	minZoom: 6,
+                            	maxZoom: 19,
+                            	bounds: [[50.5, 3.25], [54, 7.6]],
+                            	attribution: 'Kaartgegevens &copy; <a href="https://www.kadaster.nl">Kadaster</a>'
+                            }).addTo(map);
 
           var basemaps = { "Default Basemap: ": defaultBase,
                             "Esri_WorldImagery": Esri_WorldImagery };
@@ -50,6 +56,7 @@
           layerMenu.addOverlay(myArea, "Auraria Campus");
           layerMenu.addOverlay(myDataPoint, "Auraria Library");
           layerMenu.addOverlay(nexrad, "Weather radar");
+          layerMenu.addOverlay(nlmaps_pastel, "Pastel basemap");
 
           // Bind popup to data point object
           myDataPoint.bindPopup("<h3>Auraria Library</h3><p>Denver, CO<br>Information about Auraria Library.</p>");
@@ -96,7 +103,7 @@
           html, body { height: 100%; }
           #map { height: 80%; width: 95%; }
           #map-title { width: 100%; }
-          h1 { color: red; }
+          h1 { color: blue; }
       </style>
 
   </head>
