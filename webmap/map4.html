@@ -23,11 +23,11 @@
                           { attribution: '© OpenStreetMap' }).addTo(map);
                           //goes to website, pulles z-zoom, x,y,-lat,long
                           //watercolor stamen tile map
-          var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-                });
+          var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+                	{ attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                }).addTo(map);
 
-          var basemaps = { "Default Basemap: ", defaultBase,
+          var basemaps = { "Default Basemap: ": defaultBase,
                             "Esri_WorldImagery": Esri_WorldImagery };
           var overlays = {};
           var layerMenu = L.control.layers(basemaps, overlays).addTo(map);
