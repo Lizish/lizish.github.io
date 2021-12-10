@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> My First Leaflet Map!</title>
+      <!-- External Stylesheets add leaflet css library -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+
+      <!-- Add the Leaflet JavaScript library -->
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+      <!-- adds jquery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+      <script>
+        //wait for document to fully load before running javascript
+        $(document).ready(function() {
+           //note the three maps listed are different things. L.map is leaflet function
+          //create variable to hold map element, give initial settings to variable <map>
+          //the maps are color coded
+          var map = L.map('map', { center: [39.743218, -105.004568], zoom: 14});
+
+          //Add openstreetmap background tile layer to map element
+          var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                          { attribution: '© OpenStreetMap' }).addTo(map);
+                          //goes to website, pulles z-zoom, x,y,-lat,long
+                          //watercolor stamen tile map
+          var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                });
+
+          var basemaps = { "Default Basemap: ", defaultBase,
+                            "Esri_WorldImagery": Esri_WorldImagery };
+          var overlays = {};
+          var layerMenu = L.control.layers(basemaps, overlays).addTo(map);
+
+
+          // Create point feature for Auraria Library
+          var myDataPoint = L.marker([39.743119, -105.002959]).addTo(map);
+
+          //create a polygon & add to map. polygon is a class. each set of x,z is a node
+          var myArea = L.polygon([[39.740652, -105.010233], [39.743218, -105.011864],
+                       [39.748473, -105.002487], [39.740283, -104.999037]],
+                        {color: 'blue', weight: 4}).addTo(map);
+          layerMenu.addOverlay(myArea, "Auraria Campus");
+          layerMenu.addOverlay(myDataPoint, "Auraria Library");
+
+          // Bind popup to data point object
+          myDataPoint.bindPopup("<h3>Auraria Library</h3><p>Denver, CO<br>Information about Auraria Library.</p>");
+          // Bind popup to area object
+          myArea.bindPopup("Auraria campus");
+
+          //create a function to return lat,lon from a myDataPoint
+          var popup = L.popup();
+
+          //write a function to set properties of a bindPopup
+          //popup is an object, variable. in blue are functions running on popup
+          function onMapClick(e) {
+            popup
+            .setLatLng(e.latlng)
+            .setContent("You clicked the map at " + e.latlng.toString())
+            .openOn(map);
+            console.log("Clicked on the map");
+          }
+          //listen for a click event on the map
+          map.on('click', onMapClick);
+          // load GeoJSON from an external file
+
+          var buildings;
+
+            $.getJSON("buildings.json", function(data) {
+	             // add GeoJSON layer to the map once the file is loaded
+	              buildings = L.geoJson(data, {
+                  onEachFeature: function (feature, layer) {
+                    layer.bindPopup("Building type is: " + feature.properties.BLDG_TYPE +
+                                    "</br> Building Height is: " + feature.properties.BLDG_HEIGH +
+                                    "</br> Ground elevation is: " + feature.properties.GROUND_ELE);
+                  }
+                }
+
+                );
+                layerMenu.addOverlay(buildings, "Buildings");
+              });
+
+
+        //closed docready function
+        });
+      </script>
+      <style>
+          html, body { height: 100%; }
+          #map { height: 80%; width: 95%; }
+          #map-title { width: 100%; }
+          h1 { color: red; }
+      </style>
+
+  </head>
+        <body>
+
+          <div id="map-title"><h1>Liz's Map Extravaganza!</h1></div>
+          <div id="map"></div>
+
+        </body>
+</html>
