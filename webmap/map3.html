@@ -20,9 +20,23 @@
 
           //Add openstreetmap background tile layer to map element
           var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-                    { attribution: '© OpenStreetMap' }).addTo(map);
-                    //goes to website, pulles z-zoom, x,y,-lat,long
-                  
+                          { attribution: '© OpenStreetMap' }).addTo(map);
+                          //goes to website, pulles z-zoom, x,y,-lat,long
+                          //watercolor stamen tile map
+          var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z},{x},{y}.{ext}', {
+                                  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Designs</a>, <a href="http://creativecommon.org"></a>'
+                                  subdomains: 'abcd',
+                                  minZoom: 1,
+                                  maxZoom: 16,
+                                  ext: 'jpg'
+                                  });
+
+          var basemaps = { "Default Basemap: ", defaultBase,
+                            "Stamen Watercolor": Stamen_Watercolor };
+          var overlays = {};
+          var layerMenu = L.control.layers(basemaps, overlays).addTo(map);
+
+
           // Create point feature for Auraria Library
           var myDataPoint = L.marker([39.743119, -105.002959]).addTo(map);
 
@@ -30,6 +44,9 @@
           var myArea = L.polygon([[39.740652, -105.010233], [39.743218, -105.011864],
                        [39.748473, -105.002487], [39.740283, -104.999037]],
                         {color: 'blue', weight: 4}).addTo(map);
+          layerMenu.addOverlay(myArea, "Auraria Campus");
+          layerMenu.addOverlay(myDataPoint, "Auraria Library");
+          
           // Bind popup to data point object
           myDataPoint.bindPopup("<h3>Auraria Library</h3><p>Denver, CO<br>Information about Auraria Library.</p>");
           // Bind popup to area object
@@ -50,9 +67,12 @@
           //listen for a click event on the map
           map.on('click', onMapClick);
           // load GeoJSON from an external file
+
+          var buildings;
+
             $.getJSON("buildings.json", function(data) {
 	             // add GeoJSON layer to the map once the file is loaded
-	              L.geoJson(data, {
+	              buildings = L.geoJson(data, {
                   onEachFeature: function (feature, layer) {
                     layer.bindPopup("Building type is: " + feature.properties.BLDG_TYPE +
                                     "</br> Building Height is: " + feature.properties.BLDG_HEIGH +
@@ -60,7 +80,8 @@
                   }
                 }
 
-                ).addTo(map);
+                );
+                layerMenu.addOverlay(buildings, "Buildings");
               });
 
 
