@@ -49,7 +49,7 @@
           //listen for a click event on the map
           map.on('click', onMapClick);
           // load GeoJSON from an external file
-            $.getJSON("buildings.json",function(data){
+            $.getJSON("buildings.json", function(data) {
 	             // add GeoJSON layer to the map once the file is loaded
 	              L.geoJson(data).addTo(map);
               });
