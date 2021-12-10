@@ -41,7 +41,8 @@
                             }).addTo(map);
 
           var basemaps = { "Default Basemap: ": defaultBase,
-                            "Esri_WorldImagery": Esri_WorldImagery };
+                            "Esri_WorldImagery": Esri WorldImagery
+                            "nlmaps_pastel": Pastel Basemap};
           var overlays = {};
           var layerMenu = L.control.layers(basemaps, overlays).addTo(map);
 
@@ -56,7 +57,7 @@
           layerMenu.addOverlay(myArea, "Auraria Campus");
           layerMenu.addOverlay(myDataPoint, "Auraria Library");
           layerMenu.addOverlay(nexrad, "Weather radar");
-          layerMenu.addOverlay(nlmaps_pastel, "Pastel basemap");
+
 
           // Bind popup to data point object
           myDataPoint.bindPopup("<h3>Auraria Library</h3><p>Denver, CO<br>Information about Auraria Library.</p>");
