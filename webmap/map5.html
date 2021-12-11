@@ -26,23 +26,23 @@
           var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
                 	             { attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
                                 }).addTo(map);
-
+          var nlmaps_pastel = L.tileLayer('https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/pastel/EPSG:3857/{z}/{x}/{y}.png', {
+                              	minZoom: 6,
+                              	maxZoom: 19,
+                               	bounds: [[50.5, 3.25], [54, 7.6]],
+                              	attribution: 'Kaartgegevens &copy; <a href="https://www.kadaster.nl">Kadaster</a>'
+                                }).addTo(map);                      
           var nexrad = L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
                       layers: 'nexrad-n0r-900913',
                       format: 'image/png',
                       transparent: true,
                       attribution: "Weather data © 2012 IEM Nexrad"
                     }).addTo(map);
-          var nlmaps_pastel = L.tileLayer('https://service.pdok.nl/brt/achtergrondkaart/wmts/v2_0/pastel/EPSG:3857/{z}/{x}/{y}.png', {
-                            	minZoom: 6,
-                            	maxZoom: 19,
-                            	bounds: [[50.5, 3.25], [54, 7.6]],
-                            	attribution: 'Kaartgegevens &copy; <a href="https://www.kadaster.nl">Kadaster</a>'
-                            }).addTo(map);
+
 
           var basemaps = { "Default Basemap: ": defaultBase,
-                            "Esri_WorldImagery": Esri WorldImagery
-                            "nlmaps_pastel": Pastel Basemap};
+                            "Esri_WorldImagery": Esri_WorldImagery
+                            "nlmaps_pastel": nlmaps_pastel};
           var overlays = {};
           var layerMenu = L.control.layers(basemaps, overlays).addTo(map);
 
